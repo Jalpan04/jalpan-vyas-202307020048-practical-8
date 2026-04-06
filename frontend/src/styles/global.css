@@ -1,0 +1,84 @@
+:root {
+  --primary-color: #d4af37;
+  --primary-hover: #b8860b;
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --text-gold: #d4af37;
+  --text-white: #ffffff;
+  --text-gray: #a0a0a0;
+  --border-gold: rgba(212, 175, 55, 0.3);
+  --glass-bg: rgba(20, 20, 20, 0.8);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-gold);
+}
+
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.luxury-form h3 {
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-bottom: 3.5rem;
+  color: var(--text-gold);
+  text-align: left;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #000;
+  text-align: left;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+main {
+  min-height: calc(100vh - 70px);
+}
