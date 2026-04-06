@@ -1,69 +1,53 @@
-# Practical 8: Full-Stack E-Commerce Boutique
+# Practical 8: Authentication and Testing - Full-Stack E-Commerce
 
-A premium, full-stack e-commerce application developed as part of the FSD curriculum. This project implements secure authentication, cloud-based image management, and a luxury-themed frontend.
+## Aim
+To implement and validate a secure, full-stack e-commerce application with user authentication, cloud-based media storage, payment processing simulations, and comprehensive API testing.
 
-## 🚀 Features
+## Core Features and Implementation
 
-- **JWT Authentication**: Secure user registration and login with hashed passwords (`bcryptjs`) and token-based protected routes.
-- **Image Management**: Integrated with **Cloudinary** and **Multer** for reliable product image hosting and dynamic uploads.
-- **Payment Mockup**: Simulated secure checkout with a deterministic failure/success rate and custom luxury animations.
-- **Responsive Boutique UI**: A sleek, dark-themed frontend built with React and custom CSS, featuring:
-  - Product catalog with sorting.
-  - Interactive shopping bag (Cart).
-  - Smooth SVG purchase animations.
-- **API Documentation**: Follows standard REST practices with clear JSON responses.
+### User Authentication (JWT)
+- Registration and Login APIs with input validation via `express-validator`.
+- Secure password storage using `bcryptjs` for multi-layered hashing.
+- State-managed authentication using JSON Web Tokens (JWT) for session persistence across the React frontend and Express backend.
 
-## 📁 Project Structure
+### Cloud Integration (Cloudinary & Multer)
+- Integrated `multer-storage-cloudinary` for automated product image hosting on a cloud CDN.
+- Products across the platform utilize high-resolution images served globally via Cloudinary.
 
-```text
-Practical8/
-├── backend/          # Express.js & MongoDB Server
-│   ├── config/       # Database & Cloudinary configurations
-│   ├── controllers/  # API business logic
-│   ├── models/       # Mongoose Schemas (User, Product)
-│   ├── middleware/   # JWT Auth & Multer setup
-│   └── routes/       # API Endpoint definitions
-└── frontend/         # React.js (Vite) Client
-    ├── src/
-    │   ├── api/      # Axios service integrations
-    │   ├── components/ # Reusable UI components
-    │   ├── context/  # Cart and Auth state management
-    │   └── pages/    # Main routing views (Home, Checkout, etc.)
-```
+### Payment System Mockup
+- Simulated secure checkout and refund processing via a dedicated payment controller.
+- Deterministic response handling for "Insufficient Funds" and "Success" states to allow testing of frontend error handling logic.
+- Custom SVG animations to provide visual purchase confirmation upon successful transactions.
 
-## 🛠️ Installation & Setup
+### Full-Stack Architecture
+- **Frontend**: A high-performance React application built with Vite, leveraging Context API for global cart and authentication state.
+- **Backend**: A modular Express.js server connected to a MongoDB Atlas cluster, adhering to a clear Route-Model-Controller (RMC) pattern.
 
-### Prerequisites
-- Node.js (v18+)
-- MongoDB Atlas Account
-- Cloudinary Account
+---
 
-### 1. Configuration
-Create a `.env` file in the `backend/` directory:
-```env
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=your_name
-CLOUDINARY_API_KEY=your_key
-CLOUDINARY_API_SECRET=your_secret
-```
+## Technical Specifications
 
-### 2. Launch Backend
-```bash
-cd backend
-npm install
-npm run dev
-```
+### Project Structure
+- backend/ : Server logic, API routes, database schemas, and configuration.
+- frontend/ : Client-side implementation, state management, and luxurious dark-themed UI.
 
-### 3. Launch Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
+---
 
-## 📝 Submission Details
-- **AIM**: Authentication & Testing (Practical 8)
-- **ID**: jalpan-vyas-202307020048
-- **Platform**: Full-stack Integration
+## Installation & Deployment
+
+### Local Setup
+1. Clone the repository into your local workspace.
+2. Complete the configuration by creating a `.env` file in the `backend/` directory with your MongoDB and Cloudinary credentials.
+3. Install dependencies in both the `backend/` and `frontend/` directories via `npm install`.
+4. Launch the application in development mode using `npm run dev` in both folders.
+
+### Submission Links
+- GitHub: [https://github.com/Jalpan04/jalpan-vyas-202307020048-practical-8](https://github.com/Jalpan04/jalpan-vyas-202307020048-practical-8)
+- Deployed Project: (Pending deployment to Render/Vercel)
+
+---
+
+## Author
+Jalpan Vyas
+practical-8 (202307020048)
+FSD Curriculum
