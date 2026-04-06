@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: 'http://localhost:5000/api',
 });
 
-// Helper to map backend product to frontend structure
+
 const mapProduct = (p) => ({
   id: p._id,
   title: p.name,

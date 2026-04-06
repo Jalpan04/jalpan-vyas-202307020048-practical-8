@@ -5,7 +5,7 @@ const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// POST /api/auth/register
+
 router.post(
   '/register',
   [
@@ -24,7 +24,7 @@ router.post(
   register
 );
 
-// POST /api/auth/login
+
 router.post(
   '/login',
   [
@@ -37,7 +37,7 @@ router.post(
   login
 );
 
-// GET /api/auth/profile (protected)
+
 router.get('/profile', protect, getProfile);
 
 module.exports = router;

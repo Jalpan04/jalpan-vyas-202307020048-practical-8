@@ -21,7 +21,7 @@
   --radius: 8px;
   --radius-lg: 16px;
 
-  /* Legacy compatibility aliases */
+  
   --primary-color: var(--gold);
   --primary-hover: var(--gold-light);
   --bg-dark: var(--bg);
@@ -82,7 +82,7 @@ a {
   padding: 0 2rem;
 }
 
-/* Glass utility */
+
 .glass {
   background: rgba(12, 12, 12, 0.85);
   backdrop-filter: blur(20px) saturate(1.2);
@@ -90,7 +90,7 @@ a {
   border: 1px solid var(--border);
 }
 
-/* Button system */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -152,7 +152,7 @@ a {
 .w-full { width: 100%; }
 .mt-4 { margin-top: 1.5rem; }
 
-/* Grid */
+
 .grid {
   display: grid;
   gap: 2rem;
@@ -163,7 +163,7 @@ main {
   min-height: calc(100vh - 80px);
 }
 
-/* Fade in animation */
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -194,7 +194,7 @@ main {
   animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;

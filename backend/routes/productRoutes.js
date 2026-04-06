@@ -13,11 +13,11 @@ const upload = require('../middleware/uploadMiddleware');
 
 const router = express.Router();
 
-// Public routes
+
 router.get('/', getAllProducts);
 router.get('/:id', getProduct);
 
-// Protected routes
+
 router.post(
   '/',
   protect,
@@ -38,7 +38,7 @@ router.post(
 router.put('/:id', protect, upload.single('image'), updateProduct);
 router.delete('/:id', protect, deleteProduct);
 
-// Standalone image upload endpoint
+
 router.post('/upload-image', protect, upload.single('image'), uploadImage);
 
 module.exports = router;

@@ -21,14 +21,14 @@ const Checkout = () => {
 
     try {
       if (user) {
-        // Attempt real payment if logged in
+        
         await axios.post('http://localhost:5000/api/payment/checkout', {
           amount: cartTotal,
           paymentMethod: 'card',
           cardNumber: '4111 1111 1111 1111'
         });
       } else {
-        // Mock a processing delay for non-logged in users (for demo purposes)
+        
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
 
@@ -38,7 +38,7 @@ const Checkout = () => {
         navigate('/');
       }, 5000);
     } catch (err) {
-      // Forcing success anyway so the demo works smoothly as requested
+      
       setIsFinalized(true);
       setTimeout(() => {
         clearCart();

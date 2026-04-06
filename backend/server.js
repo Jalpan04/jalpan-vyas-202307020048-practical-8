@@ -9,15 +9,15 @@ const paymentRoutes = require('./routes/paymentRoutes');
 
 const app = express();
 
-// Connect to MongoDB
+
 connectDB();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Root health check
+
 app.get('/', (req, res) => {
   res.json({
     message: 'Practical 8 API is running',
@@ -30,12 +30,12 @@ app.get('/', (req, res) => {
   });
 });
 
-// API Routes
+
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/payment', paymentRoutes);
 
-// 404 handler
+
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -43,7 +43,7 @@ app.use((req, res) => {
   });
 });
 
-// Global error handler
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({

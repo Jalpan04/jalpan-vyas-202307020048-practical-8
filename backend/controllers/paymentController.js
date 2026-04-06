@@ -1,4 +1,4 @@
-// POST /api/payment/checkout
+
 const processPayment = async (req, res) => {
   const { amount, currency = 'INR', paymentMethod, cardNumber } = req.body;
 
@@ -16,10 +16,10 @@ const processPayment = async (req, res) => {
     });
   }
 
-  // Simulate API processing delay
+  
   await new Promise((resolve) => setTimeout(resolve, 800));
 
-  // Simulate 20% failure rate to test error handling
+  
   const shouldFail = Math.random() < 0.2;
 
   if (shouldFail) {
@@ -50,7 +50,7 @@ const processPayment = async (req, res) => {
   });
 };
 
-// POST /api/payment/refund
+
 const processRefund = async (req, res) => {
   const { transactionId, reason } = req.body;
 
@@ -77,7 +77,7 @@ const processRefund = async (req, res) => {
   });
 };
 
-// GET /api/payment/status/:transactionId
+
 const getPaymentStatus = async (req, res) => {
   const { transactionId } = req.params;
 

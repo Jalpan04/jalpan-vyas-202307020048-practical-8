@@ -2,7 +2,7 @@
   padding: 5rem 0;
 }
 
-/* Page header */
+
 .boutique-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 3.2rem;
@@ -24,7 +24,7 @@
   display: block;
 }
 
-/* Product Grid */
+
 .product-grid {
   display: grid;
   gap: 1.5rem;
@@ -32,7 +32,7 @@
   animation: fadeIn 0.5s ease;
 }
 
-/* Product Card */
+
 .luxury-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -67,7 +67,7 @@
   opacity: 1;
 }
 
-/* Image Container */
+
 .luxury-img-container {
   height: 280px;
   padding: 2.5rem;
@@ -99,7 +99,7 @@
   transform: scale(1.08);
 }
 
-/* Card Content */
+
 .luxury-content {
   padding: 1.75rem;
   flex-grow: 1;
@@ -152,7 +152,7 @@
   letter-spacing: 2px;
 }
 
-/* Loading state */
+
 .loading {
   display: flex;
   flex-direction: column;
@@ -189,7 +189,7 @@
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* Filters row */
+
 .filters-row {
   display: flex;
   align-items: center;
