@@ -1,80 +1,132 @@
 .py-8 {
-  padding: 4rem 0;
+  padding: 5rem 0;
 }
 
+/* Page header */
 .boutique-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
   text-align: left;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  color: var(--text-gold);
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
+.boutique-subtitle {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 3.5rem;
+  display: block;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  animation: fadeIn 0.5s ease;
+}
+
+/* Product Card */
 .luxury-card {
-  background: #141414;
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 0;
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .luxury-card:hover {
-  border-color: var(--text-gold);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(201, 168, 76, 0.08);
 }
 
+.luxury-card:hover::before {
+  opacity: 1;
+}
+
+/* Image Container */
 .luxury-img-container {
-  height: 300px;
-  padding: 3rem;
-  background: white;
+  height: 280px;
+  padding: 2.5rem;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+}
+
+.luxury-img-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.05));
+  pointer-events: none;
 }
 
 .luxury-img-container img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .luxury-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
+/* Card Content */
 .luxury-content {
-  padding: 2rem;
+  padding: 1.75rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .luxury-cat {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
-  color: var(--text-gold);
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 0.8rem;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 0.75rem;
 }
 
 .luxury-title {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  color: #fff;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  letter-spacing: 0.2px;
 }
 
 .luxury-footer {
@@ -82,27 +134,85 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 .luxury-price {
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: var(--text-gold);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 1px;
 }
 
 .btn-sm {
-  padding: 0.6rem 1.2rem;
-  font-size: 0.75rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
 }
 
+/* Loading state */
 .loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 60vh;
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: 4px;
+  gap: 1.5rem;
+}
+
+.loading-text {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  color: var(--text-gold);
+  color: var(--text-secondary);
+}
+
+.loading-bar {
+  width: 120px;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Filters row */
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-select {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.filter-select:focus,
+.filter-select:hover {
+  border-color: var(--border-bright);
+  color: var(--text-primary);
 }

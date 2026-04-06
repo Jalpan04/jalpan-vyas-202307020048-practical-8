@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import './Checkout.css'; // Using the same form styles
+import './Auth.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const Register = () => {
     confirmPassword: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { register } = useAuth();
   const navigate = useNavigate();
 
@@ -20,77 +21,104 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     if (formData.password !== formData.confirmPassword) {
-      return setError('Passwords do not match');
+      return setError('Passwords do not match.');
     }
+    setLoading(true);
     try {
       await register({
         name: formData.name,
         email: formData.email,
-        password: formData.password
+        password: formData.password,
       });
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="container py-8">
-      <h1 className="boutique-title">New Membership</h1>
-      <div className="checkout-view" style={{ justifyContent: 'center' }}>
-        <form className="luxury-form" onSubmit={handleSubmit} style={{ maxWidth: '500px', margin: '0 auto' }}>
-          <h3>Join Our Exclusive Boutique</h3>
-          {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-          <div className="f-field">
+    <div className="auth-page">
+      <div className="auth-card">
+        <div className="auth-brand">
+          <span className="auth-brand-logo">Glam<span>Store</span></span>
+          <div className="auth-divider" />
+        </div>
+
+        <h2 className="auth-heading">Create Account</h2>
+        <p className="auth-subheading">Join our exclusive boutique</p>
+
+        {error && <div className="auth-error">{error}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="auth-field">
             <label>Full Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="name"
-              value={formData.name} 
-              onChange={handleChange} 
-              required 
+              placeholder="Your full name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              autoComplete="name"
             />
+            <div className="auth-field-underline" />
           </div>
-          <div className="f-field">
+
+          <div className="auth-field">
             <label>Email Address</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="email"
-              value={formData.email} 
-              onChange={handleChange} 
-              required 
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              autoComplete="email"
             />
+            <div className="auth-field-underline" />
           </div>
-          <div className="f-row">
-            <div className="f-field">
+
+          <div className="auth-row">
+            <div className="auth-field">
               <label>Password</label>
-              <input 
-                type="password" 
+              <input
+                type="password"
                 name="password"
-                value={formData.password} 
-                onChange={handleChange} 
-                required 
+                placeholder="Min. 6 characters"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                autoComplete="new-password"
               />
+              <div className="auth-field-underline" />
             </div>
-            <div className="f-field">
+            <div className="auth-field">
               <label>Confirm</label>
-              <input 
-                type="password" 
+              <input
+                type="password"
                 name="confirmPassword"
-                value={formData.confirmPassword} 
-                onChange={handleChange} 
-                required 
+                placeholder="Repeat password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                autoComplete="new-password"
               />
+              <div className="auth-field-underline" />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary w-full mt-4">
-            Register Account
+
+          <button type="submit" className="auth-submit" disabled={loading}>
+            {loading ? 'Creating Account...' : 'Create Account'}
           </button>
-          <p style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-            Already a member? <Link to="/login">Sign In</Link>
-          </p>
         </form>
+
+        <p className="auth-footer">
+          Already a member? <Link to="/login">Sign In</Link>
+        </p>
       </div>
     </div>
   );

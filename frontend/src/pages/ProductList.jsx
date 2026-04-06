@@ -23,14 +23,22 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  if (loading) return <div className="loading">Initializing boutique...</div>;
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="loading-bar" />
+        <span className="loading-text">Curating Collection</span>
+      </div>
+    );
+  }
 
   return (
     <div className="container py-8">
       <h1 className="boutique-title">Selected Pieces</h1>
-      <div className="grid">
+      <span className="boutique-subtitle">Curated Collection</span>
+      <div className="product-grid">
         {products.map((product) => (
-          <div key={product.id} className="luxury-card">
+          <div key={product.id} className="luxury-card fade-in">
             <Link to={`/product/${product.id}`} className="luxury-img-container">
               <img src={product.image} alt={product.title} />
             </Link>
@@ -40,8 +48,8 @@ const ProductList = () => {
                 <h3 className="luxury-title">{product.title}</h3>
               </Link>
               <div className="luxury-footer">
-                <span className="luxury-price">₹{product.price}</span>
-                <button 
+                <span className="luxury-price">&#8377;{product.price}</span>
+                <button
                   className="btn btn-primary btn-sm"
                   onClick={() => addToCart(product)}
                 >
