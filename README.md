@@ -1,5 +1,7 @@
 # Glam Store: Full-Stack E-Commerce Platform
 
+![GitHub top language](https://img.shields.io/github/languages/top/Jalpan04/jalpan-vyas-202307020048-practical-8) ![GitHub repo size](https://img.shields.io/github/repo-size/Jalpan04/jalpan-vyas-202307020048-practical-8) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](LICENSE)
+
 A high-performance, full-stack e-commerce application featuring a luxury dark-themed UI, secure JWT authentication, and cloud-based media integration.
 
 ## Core Features
