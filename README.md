@@ -72,3 +72,7 @@ npm run dev
 Jalpan Vyas
 FSD Full-Stack E-Commerce Project
 github.com/Jalpan04
+
+## License
+
+This project is licensed under the Unlicense License - see the [LICENSE](LICENSE) file for details.
